@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.assignment.transferservice</groupId>
+	<artifactId>transferservice-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>NEXT-SNAPSHOT</version>
+	<name>${project.groupId} - ${project.artifactId}</name>
+
+	<properties>
+		<component.name>transferservice</component.name>
+		<component.identifier>transferservice</component.identifier>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- Internal dependencies -->
+			<dependency>
+				<groupId>com.assignment.transferservice</groupId>
+				<artifactId>app</artifactId>
+				<version>${project.version}</version>
+				<type>ear</type>
+			</dependency>
+			<dependency>
+				<groupId>com.assignment.transferservice</groupId>
+				<artifactId>rest.api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.assignment.transferservice</groupId>
+				<artifactId>rest.web</artifactId>
+				<type>war</type>
+				<version>${project.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>rest.api</module>
+		<module>rest.web</module>
+		<module>app</module>
+	</modules>
+
+
+</project>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.assignment.transferservice</groupId>
+		<artifactId>transferservice-parent</artifactId>
+		<version>NEXT-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>transferservice-app</artifactId>
+	<packaging>ear</packaging>
+
+	<name>${project.groupId} - ${project.artifactId}</name>
+
+	<dependencies>
+
+		<!-- Internal dependencies -->
+		<dependency>
+			<groupId>com.assignment.transferservice</groupId>
+			<artifactId>rest.web</artifactId>
+			<type>war</type>
+		</dependency>
+
+		<!-- Third party -->
+		<dependency>
+			<groupId>com.jcabi</groupId>
+			<artifactId>jcabi-log</artifactId>
+			<version>0.17.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<finalName>transferservice.app</finalName>
+					<modules>
+						<webModule>
+							<groupId>com.assignment.transferservice</groupId>
+							<artifactId>rest.web</artifactId>
+							<contextRoot>/transferservice</contextRoot>
+							<bundleFileName>transferservice.rest.web.war</bundleFileName>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-component-ear</id>
+						<phase>install</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

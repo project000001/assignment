@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+        </dependencies>
+    </deployment>
+    <sub-deployment name="transferservice.rest.web.war">
+        <!-- Just to make sure these modules are not loaded -->
+        <exclusions>
+            <module name="org.jboss.resteasy.resteasy-jackson-provider"/>
+            <module name="org.jboss.resteasy.resteasy-jettison-provider"/>
+        </exclusions>
+
+        <dependencies>
+            <module name="org.jboss.resteasy.resteasy-jackson2-provider" services="import"/>
+            <module name="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider" export="true"/>
+        </dependencies>
+
+    </sub-deployment>
+</jboss-deployment-structure>
